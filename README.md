@@ -37,19 +37,19 @@ action "Publish" {
 
 ### Environment variables
 
-* `NPM_REGISTRY_URL` - **Optional**. To specify a registry to authenticate with. Defaults to `registry.npmjs.org`
+* `NPM_REGISTRY_URL` - **Optional**. To specify a registry to authenticate with. Defaults to `https://registry.npmjs.org`
 * `NPM_CONFIG_USERCONFIG` - **Optional**. To specify a non-default per-user configuration file. Defaults to `$HOME/.npmrc` ([more info](https://docs.npmjs.com/misc/config#npmrc-files))
 
 #### Example
 
-To authenticate with, and publish to, a registry other than `registry.npmjs.org`:
+To authenticate with, and publish to, a registry other than `https://registry.npmjs.org`:
 
 ```hcl
 action "Publish" {
   uses = "actions/npm@master"
   args = "publish --access public"
   env = {
-    NPM_REGISTRY_URL = "someOtherRegistry.someDomain.net"
+    NPM_REGISTRY_URL = "https://someOtherRegistry.someDomain.net"
   }
   secrets = ["NPM_AUTH_TOKEN"]
 }
